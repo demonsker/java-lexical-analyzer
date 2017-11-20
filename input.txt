@@ -4,8 +4,11 @@ if
 then
 else
 ;
-
+(
+)
 "999string123"
+"test space"
+"print"
 //comment
 /*Hello
 world*/

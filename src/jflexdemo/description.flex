@@ -20,59 +20,68 @@ import java.util.ArrayList;
 keyword = "if" | "then" |"else"| "endif" |"while" |"do"| "endwhile" |"print" |"newline"| "read"
 operator = "+" | "-" |"*"| "/"| "="| ">" |">="| "<"| "<="| "==" |"++"| "--"
 integer = [0-9][0-9]*
-word  =  [A-Za-z][A-Za-z]*
-string = [\"][A-Za-z0-9][A-Za-z0-9]*[\"]
-LineTerminator = \r|\n|\r\n
-comment = "//"[A-Za-z0-9][A-Za-z0-9]*
-commentmanylines = "/*"[A-Za-z0-9][A-Za-z0-9]*[\r[A-Za-z0-9]*|\n[A-Za-z0-9]*|\r\n[A-Za-z0-9]*]*"*/"
-endPunct    =  [\;] 
-otherPunct  =  [\(\)] 
-space    =  [\ \t\r\n]
+identifier  =  [A-Za-z][A-Za-z]*[0-9]*
+string = \"[A-Za-z0-9\+\-\*\/\>\<\=\ ]*\"
+comment = "//"[A-Za-z0-9\+\-\*/\>\<\=\ ]*
+commentmanylines =  "/*"[A-Za-z0-9\+\-\*\/\>\<\=\ \t\r\n]*"*/"
+semicolon    =  \;
+bracket  =  [\(\)] 
+space    =  \ 
+LineTerminator = \r|\n
 
 %state FIRST
  
 %% 
-<FIRST> { 
-  
-  {operator}	{ 
-		System.out.println( "Operator :\t" + yytext()  ); 
-		}
-  {keyword}	{ 
-		System.out.println( "Keyword :\t" + yytext()  ); 
-		} 
-  {word}	{ 
-  		String x = yytext();
-            	boolean FoundInList = false;
-            	for(int i=0;i<list.size();i++) {
-            		if(list.get(i).equals(x)) {
-            			FoundInList = true;
-            			break;
-            		}
-            	}
-            	if(FoundInList){
-            		System.out.println( "Identifier :\t" + x );
-            	}
-            	else{
-            		System.out.println( "New Identifier :\t" + x ); 
-            	}
-            	list.add(x);
-		} 
-  {endPunct}	{ 
-		System.out.println( "EndPunct :\t" + yytext()  ); 
-		}
-  {string}	{ 
-			System.out.println( "String :\t" + yytext()  ); 
-		}
-  {comment}	{ 
-		System.out.println( "Comment :\t" + yytext()  ); 
-		}
-	{commentmanylines}	{ 
-		System.out.println( "Comment :\t" + yytext()  ); 
-		}
-
-  {space}	{ } 
-               
-   .	{ 
+<FIRST> 
+{ 
+  {operator}	
+    { 
+	System.out.println( "Operator :\t" + yytext()  ); 
+    }
+  {semicolon} | {bracket}	
+    { 
+        if(yytext().equals(";"))
+        {
+            System.out.println( "Semicolon :\t" + yytext()  ); 
+        }
+        else
+        {
+            System.out.println( "Bracket :\t" + yytext()  ); 
+        }
+    }
+  {keyword}	
+    { 
+	System.out.println( "Keyword :\t" + yytext()  ); 
+    } 
+  {integer}	
+    { 
+	System.out.println( "Integer :\t" + yytext()  ); 
+    } 
+  {identifier}	
+    { 
+       	if(list.contains(yytext()))
+        {
+            System.out.println( "Identifier "+yytext() +" already exists");
+        }
+        else
+        {
+            System.out.println( "New Identifier :\t" + yytext() );
+            list.add(yytext());
+        }
+    }
+  {string}	
+    { 
+        System.out.println( "String :\t" + yytext()  ); 
+    }
+  {comment}|{commentmanylines}	
+    { 
+        System.out.println( "Comment :\t" + yytext()  ); 
+    }
+  {space} | {LineTerminator}	
+    { 
+    }            
+    .	
+    { 
         System.err.println( "Invalid character \"" + yytext() + "\"" ); 
     }
 }

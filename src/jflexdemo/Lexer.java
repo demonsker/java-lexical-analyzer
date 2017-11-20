@@ -35,12 +35,12 @@ public class Lexer {
    * Translates characters to character classes
    */
   private static final String ZZ_CMAP_PACKED = 
-    "\11\0\1\33\1\30\1\34\1\34\1\30\22\0\1\33\1\0\1\27"+
-    "\5\0\2\0\1\21\1\17\1\0\1\20\1\0\1\22\12\25\1\0"+
+    "\11\0\1\31\1\33\1\34\1\34\1\33\22\0\1\30\1\0\1\27"+
+    "\5\0\2\32\1\21\1\17\1\0\1\20\1\0\1\22\12\25\1\0"+
     "\1\32\1\24\1\23\1\24\2\0\32\26\6\0\1\16\2\26\1\11"+
     "\1\5\1\2\1\26\1\4\1\1\2\26\1\7\1\26\1\6\1\13"+
-    "\1\14\1\26\1\15\1\10\1\3\2\26\1\12\3\26\1\0\1\31"+
-    "\10\0\1\34\u1fa2\0\1\34\1\34\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
+    "\1\14\1\26\1\15\1\10\1\3\2\26\1\12\3\26\12\0\1\34"+
+    "\u1fa2\0\1\34\1\34\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
 
   /** 
    * Translates characters to character classes
@@ -53,9 +53,9 @@ public class Lexer {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\2\0\1\1\11\2\5\3\1\1\1\4\1\5\1\6"+
-    "\7\2\3\0\7\2\1\0\1\7\1\10\2\2\1\0"+
-    "\1\2\1\7";
+    "\2\0\1\1\11\2\5\3\1\4\1\1\1\5\1\6"+
+    "\1\7\10\2\1\0\1\10\1\0\1\11\7\2\1\0"+
+    "\2\2\1\10\1\2";
 
   private static int [] zzUnpackAction() {
     int [] result = new int[46];
@@ -85,10 +85,10 @@ public class Lexer {
   private static final String ZZ_ROWMAP_PACKED_0 =
     "\0\0\0\35\0\0\0\72\0\127\0\164\0\221\0\256"+
     "\0\313\0\350\0\u0105\0\u0122\0\u013f\0\u015c\0\0\0\u0179"+
-    "\0\u0196\0\u01b3\0\0\0\0\0\127\0\u01d0\0\u01ed\0\u020a"+
+    "\0\u0196\0\u01b3\0\u01d0\0\0\0\0\0\127\0\u01ed\0\u020a"+
     "\0\u0227\0\u0244\0\u0261\0\u027e\0\u029b\0\u02b8\0\u02d5\0\u02f2"+
-    "\0\u030f\0\u032c\0\u0349\0\u0366\0\u0383\0\u03a0\0\u03bd\0\u02b8"+
-    "\0\0\0\u03da\0\u03f7\0\u0414\0\u0431\0\0";
+    "\0\u01d0\0\0\0\u030f\0\u032c\0\u0349\0\u0366\0\u0383\0\u03a0"+
+    "\0\u03bd\0\u03da\0\u03f7\0\u0414\0\u02d5\0\u0431";
 
   private static int [] zzUnpackRowMap() {
     int [] result = new int[46];
@@ -116,32 +116,35 @@ public class Lexer {
   private static final String ZZ_TRANS_PACKED_0 =
     "\35\0\1\3\1\4\1\5\1\6\1\5\1\7\1\10"+
     "\2\5\1\11\1\12\1\5\1\13\1\14\1\5\1\15"+
-    "\1\16\1\17\1\20\2\21\1\3\1\5\1\22\1\23"+
-    "\1\3\1\24\1\23\2\0\1\5\1\25\14\5\7\0"+
-    "\1\5\7\0\16\5\7\0\1\5\7\0\3\5\1\26"+
-    "\12\5\7\0\1\5\7\0\5\5\1\27\1\30\7\5"+
-    "\7\0\1\5\7\0\4\5\1\31\11\5\7\0\1\5"+
-    "\7\0\12\5\1\25\3\5\7\0\1\5\7\0\3\5"+
-    "\1\32\12\5\7\0\1\5\7\0\14\5\1\33\1\5"+
-    "\7\0\1\5\7\0\4\5\1\34\11\5\7\0\1\5"+
-    "\25\0\1\17\35\0\1\17\35\0\1\35\1\36\35\0"+
-    "\1\17\12\0\16\37\6\0\2\37\7\0\4\5\1\40"+
-    "\11\5\7\0\1\5\7\0\10\5\1\41\5\5\7\0"+
-    "\1\5\7\0\7\5\1\42\6\5\7\0\1\5\7\0"+
-    "\11\5\1\43\4\5\7\0\1\5\7\0\1\44\15\5"+
-    "\7\0\1\5\7\0\1\45\15\5\7\0\1\5\7\0"+
-    "\15\5\1\46\7\0\1\5\7\0\16\47\6\0\2\47"+
-    "\7\0\16\50\6\0\2\50\7\0\16\37\6\0\2\37"+
-    "\1\51\6\0\5\5\1\25\10\5\7\0\1\5\7\0"+
-    "\1\4\10\5\1\12\4\5\7\0\1\5\7\0\4\5"+
-    "\1\25\11\5\7\0\1\5\7\0\6\5\1\52\7\5"+
-    "\7\0\1\5\7\0\6\5\1\42\7\5\7\0\1\5"+
-    "\7\0\5\5\1\53\10\5\7\0\1\5\7\0\10\5"+
-    "\1\25\5\5\7\0\1\5\7\0\16\47\2\0\1\54"+
-    "\3\0\2\47\1\0\2\47\4\0\1\55\15\5\7\0"+
-    "\1\5\7\0\2\5\1\25\13\5\7\0\1\5\7\0"+
-    "\16\47\2\0\1\54\1\56\2\0\2\47\1\0\2\47"+
-    "\4\0\5\5\1\42\10\5\7\0\1\5\6\0";
+    "\1\16\1\17\1\20\2\21\1\22\1\5\1\23\1\24"+
+    "\1\3\1\25\1\24\2\0\1\5\1\26\14\5\6\0"+
+    "\1\27\1\5\7\0\16\5\6\0\1\27\1\5\7\0"+
+    "\3\5\1\30\12\5\6\0\1\27\1\5\7\0\5\5"+
+    "\1\31\1\32\7\5\6\0\1\27\1\5\7\0\4\5"+
+    "\1\33\11\5\6\0\1\27\1\5\7\0\12\5\1\26"+
+    "\3\5\6\0\1\27\1\5\7\0\3\5\1\34\12\5"+
+    "\6\0\1\27\1\5\7\0\14\5\1\35\1\5\6\0"+
+    "\1\27\1\5\7\0\4\5\1\36\11\5\6\0\1\27"+
+    "\1\5\25\0\1\17\35\0\1\17\35\0\1\37\1\40"+
+    "\35\0\1\17\36\0\1\22\10\0\26\41\1\42\1\41"+
+    "\31\0\1\27\10\0\4\5\1\43\11\5\6\0\1\27"+
+    "\1\5\7\0\10\5\1\44\5\5\6\0\1\27\1\5"+
+    "\7\0\7\5\1\45\6\5\6\0\1\27\1\5\7\0"+
+    "\11\5\1\46\4\5\6\0\1\27\1\5\7\0\1\47"+
+    "\15\5\6\0\1\27\1\5\7\0\1\50\15\5\6\0"+
+    "\1\27\1\5\7\0\15\5\1\51\6\0\1\27\1\5"+
+    "\7\0\20\37\1\52\5\37\1\0\2\37\1\0\1\37"+
+    "\2\0\26\40\1\0\1\40\5\0\5\5\1\26\10\5"+
+    "\6\0\1\27\1\5\7\0\1\4\10\5\1\12\4\5"+
+    "\6\0\1\27\1\5\7\0\4\5\1\26\11\5\6\0"+
+    "\1\27\1\5\7\0\6\5\1\53\7\5\6\0\1\27"+
+    "\1\5\7\0\6\5\1\45\7\5\6\0\1\27\1\5"+
+    "\7\0\5\5\1\54\10\5\6\0\1\27\1\5\7\0"+
+    "\10\5\1\26\5\5\6\0\1\27\1\5\7\0\20\37"+
+    "\1\52\1\55\4\37\1\0\2\37\1\0\1\37\2\0"+
+    "\1\56\15\5\6\0\1\27\1\5\7\0\2\5\1\26"+
+    "\13\5\6\0\1\27\1\5\7\0\5\5\1\45\10\5"+
+    "\6\0\1\27\1\5\6\0";
 
   private static int [] zzUnpackTrans() {
     int [] result = new int[1102];
@@ -182,9 +185,8 @@ public class Lexer {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\10\1\0\1\11\13\1\1\11\3\1\2\11\10\1"+
-    "\3\0\7\1\1\0\1\1\1\11\2\1\1\0\1\1"+
-    "\1\11";
+    "\1\10\1\0\1\11\13\1\1\11\4\1\2\11\11\1"+
+    "\1\0\1\1\1\0\1\11\7\1\1\0\4\1";
 
   private static int [] zzUnpackAttribute() {
     int [] result = new int[46];
@@ -287,7 +289,7 @@ public class Lexer {
     char [] map = new char[0x110000];
     int i = 0;  /* index in packed string  */
     int j = 0;  /* index in unpacked array */
-    while (i < 144) {
+    while (i < 140) {
       int  count = packed.charAt(i++);
       char value = packed.charAt(i++);
       do map[j++] = value; while (--count > 0);
@@ -584,49 +586,54 @@ public class Lexer {
           case 1: 
             { System.err.println( "Invalid character \"" + yytext() + "\"" );
             }
-          case 9: break;
-          case 2: 
-            { String x = yytext();
-            	boolean FoundInList = false;
-            	for(int i=0;i<list.size();i++) {
-            		if(list.get(i).equals(x)) {
-            			FoundInList = true;
-            			break;
-            		}
-            	}
-            	if(FoundInList){
-            		System.out.println( "Identifier :\t" + x );
-            	}
-            	else{
-            		System.out.println( "New Identifier :\t" + x ); 
-            	}
-            	list.add(x);
-            }
           case 10: break;
+          case 2: 
+            { if(list.contains(yytext()))
+        {
+            System.out.println( "Identifier "+yytext() +" already exists");
+        }
+        else
+        {
+            System.out.println( "New Identifier :\t" + yytext() );
+            list.add(yytext());
+        }
+            }
+          case 11: break;
           case 3: 
             { System.out.println( "Operator :\t" + yytext()  );
             }
-          case 11: break;
-          case 4: 
-            { 
-            }
           case 12: break;
-          case 5: 
-            { System.out.println( "EndPunct :\t" + yytext()  );
+          case 4: 
+            { System.out.println( "Integer :\t" + yytext()  );
             }
           case 13: break;
-          case 6: 
-            { System.out.println( "Keyword :\t" + yytext()  );
+          case 5: 
+            { 
             }
           case 14: break;
-          case 7: 
-            { System.out.println( "Comment :\t" + yytext()  );
+          case 6: 
+            { if(yytext().equals(";"))
+        {
+            System.out.println( "Semicolon :\t" + yytext()  ); 
+        }
+        else
+        {
+            System.out.println( "Bracket :\t" + yytext()  ); 
+        }
             }
           case 15: break;
-          case 8: 
-            { System.out.println( "String :\t" + yytext()  );
+          case 7: 
+            { System.out.println( "Keyword :\t" + yytext()  );
             }
           case 16: break;
+          case 8: 
+            { System.out.println( "Comment :\t" + yytext()  );
+            }
+          case 17: break;
+          case 9: 
+            { System.out.println( "String :\t" + yytext()  );
+            }
+          case 18: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }
