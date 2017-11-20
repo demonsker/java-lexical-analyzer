@@ -1,55 +1,78 @@
 package jflexdemo; 
- 
+import java.util.ArrayList;
  
 %% 
  
 %public 
 %class Lexer 
 %type Void 
+
+
+%{
+	 private ArrayList<String> list= new ArrayList();
+%}
+
  
 %init{ 
     yybegin( FIRST ); 
-%init} 
- 
+%init}
+
 keyword = "if" | "then" |"else"| "endif" |"while" |"do"| "endwhile" |"print" |"newline"| "read"
 operator = "+" | "-" |"*"| "/"| "="| ">" |">="| "<"| "<="| "==" |"++"| "--"
 integer = [0-9][0-9]*
 word  =  [A-Za-z][A-Za-z]*
 string = [\"][A-Za-z0-9][A-Za-z0-9]*[\"]
+LineTerminator = \r|\n|\r\n
 comment = "//"[A-Za-z0-9][A-Za-z0-9]*
+commentmanylines = "/*"[A-Za-z0-9][A-Za-z0-9]*[\r[A-Za-z0-9]*|\n[A-Za-z0-9]*|\r\n[A-Za-z0-9]*]*"*/"
 endPunct    =  [\;] 
 otherPunct  =  [\(\)] 
-space    =  [\ \t\r\n] 
- 
+space    =  [\ \t\r\n]
+
 %state FIRST
  
 %% 
 <FIRST> { 
   
-  {operator}    { 
-		System.out.println( "operator\t" + yytext()  ); 
+  {operator}	{ 
+		System.out.println( "Operator :\t" + yytext()  ); 
 		}
-  {keyword}    { 
-		System.out.println( "keyword\t" + yytext()  ); 
+  {keyword}	{ 
+		System.out.println( "Keyword :\t" + yytext()  ); 
 		} 
-  {word}
-		{ 
-		System.out.println( "identifier\t" + yytext() ); 
+  {word}	{ 
+  		String x = yytext();
+            	boolean FoundInList = false;
+            	for(int i=0;i<list.size();i++) {
+            		if(list.get(i).equals(x)) {
+            			FoundInList = true;
+            			break;
+            		}
+            	}
+            	if(FoundInList){
+            		System.out.println( "Identifier :\t" + x );
+            	}
+            	else{
+            		System.out.println( "New Identifier :\t" + x ); 
+            	}
+            	list.add(x);
 		} 
-  {endPunct}    { 
-		System.out.println( "endPunct\t" + yytext()  ); 
+  {endPunct}	{ 
+		System.out.println( "EndPunct :\t" + yytext()  ); 
 		}
-  {string}	 { 
-			System.out.println( "string\t" + yytext()  ); 
+  {string}	{ 
+			System.out.println( "String :\t" + yytext()  ); 
 		}
-  {comment}       { 
-		System.out.println( "comment\t" + yytext()  ); 
+  {comment}	{ 
+		System.out.println( "Comment :\t" + yytext()  ); 
+		}
+	{commentmanylines}	{ 
+		System.out.println( "Comment :\t" + yytext()  ); 
 		}
 
-  {space}   { } 
+  {space}	{ } 
                
-   .     { 
-        System.err.println(  
-          "Invalid character \"" + yytext() + "\"" ); 
-        }
+   .	{ 
+        System.err.println( "Invalid character \"" + yytext() + "\"" ); 
+    }
 }
