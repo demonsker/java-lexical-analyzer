@@ -10,5 +10,16 @@ else
 "test space"
 "print"
 //comment
-/*Hello
+/*Hello *
 world*/
+
+A + B
+-
+*
+if
+then
+id1
+id2
+id1
+"Hello World"
+/*comment*/

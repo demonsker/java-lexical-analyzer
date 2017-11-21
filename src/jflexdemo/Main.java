@@ -20,5 +20,4 @@ public class Main {
         Lexer lex = new Lexer(new FileReader("input.txt"));
         lex.yylex();
     }
-
 }
