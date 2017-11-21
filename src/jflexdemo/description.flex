@@ -30,7 +30,6 @@ bracket  =  [\(\)]
 space    =  \ 
 LineTerminator = \r|\n|\r\n
 
-
 %state FIRST
  
 %% 
