@@ -1,5 +1,8 @@
 package jflexdemo; 
+<<<<<<< HEAD
+=======
 import java.util.ArrayList;
+>>>>>>> 7064cefb0ffb6b00072a16e5507b27df98f17837
  
 %% 
  
