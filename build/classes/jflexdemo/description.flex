@@ -18,7 +18,6 @@ import java.util.ArrayList;
 %init}
 
 character = [^\r\n]
-LineTerminator = \r|\n|\r\n
 keyword = "if" | "then" |"else"| "endif" |"while" |"do"| "endwhile" |"print" |"newline"| "read"
 operator = "+" | "-" |"*"| "/"| "="| ">" |">="| "<"| "<="| "==" |"++"| "--"
 integer = \d+
@@ -27,8 +26,9 @@ string = \"{character}*\"
 comment = "//"{character}*
 commentmanylines =  "/*"[A-Za-z0-9\+\-\*\/\>\<\=\ \t\r\n]*"*/"
 semicolon    =  \;
-bracket  =  [\(\)]
+bracket  =  [\(\)] 
 space    =  \ 
+LineTerminator = \r|\n|\r\n
 
 
 %state FIRST

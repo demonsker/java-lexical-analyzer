@@ -10,7 +10,7 @@ else
 "test space"
 "print"
 //comment
-/*Hello
+/*Hello *
 world*/
 
 A + B
