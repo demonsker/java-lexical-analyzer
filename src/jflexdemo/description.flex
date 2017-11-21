@@ -1,6 +1,5 @@
 package jflexdemo; 
  
- 
 %% 
  
 %public 
