@@ -17,17 +17,19 @@ import java.util.ArrayList;
     yybegin( FIRST ); 
 %init}
 
+character = [^\r\n]
+LineTerminator = \r|\n|\r\n
 keyword = "if" | "then" |"else"| "endif" |"while" |"do"| "endwhile" |"print" |"newline"| "read"
 operator = "+" | "-" |"*"| "/"| "="| ">" |">="| "<"| "<="| "==" |"++"| "--"
-integer = [0-9][0-9]*
-identifier  =  [A-Za-z][A-Za-z]*[0-9]*
-string = \"[A-Za-z0-9\+\-\*\/\>\<\=\ ]*\"
-comment = "//"[A-Za-z0-9\+\-\*/\>\<\=\ ]*
+integer = \d+
+identifier  =  [A-Za-z][A-Za-z0-9]*
+string = \"{character}*\"
+comment = "//"{character}*
 commentmanylines =  "/*"[A-Za-z0-9\+\-\*\/\>\<\=\ \t\r\n]*"*/"
 semicolon    =  \;
-bracket  =  [\(\)] 
+bracket  =  [\(\)]
 space    =  \ 
-LineTerminator = \r|\n
+
 
 %state FIRST
  
