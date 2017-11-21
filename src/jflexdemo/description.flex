@@ -24,7 +24,7 @@ integer = \d+
 identifier  =  [A-Za-z][A-Za-z0-9]*
 string = \"{character}*\"
 comment = "//"{character}*
-commentmanylines =  "/*"[A-Za-z0-9\+\-\*\/\>\<\=\ \t\r\n]*"*/"
+commentmanylines =  "/*"~"*/"
 semicolon    =  \;
 bracket  =  [\(\)] 
 space    =  \ 
