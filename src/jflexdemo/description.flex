@@ -45,9 +45,13 @@ LineTerminator = \r|\n|\r\n
         {
             System.out.println( "Semicolon :\t" + yytext()  ); 
         }
+        else if(yytext().equals("("))
+        {
+            System.out.println( "Open Bracket :\t" + yytext()  ); 
+        }
         else
         {
-            System.out.println( "Bracket :\t" + yytext()  ); 
+            System.out.println( "Close Bracket :\t" + yytext()  ); 
         }
     }
   {keyword}	
@@ -62,7 +66,7 @@ LineTerminator = \r|\n|\r\n
     { 
        	if(list.contains(yytext()))
         {
-            System.out.println( "Identifier "+yytext() +" already exists");
+            System.out.println( "Identifier "+yytext() +" already in symbol table");
         }
         else
         {
@@ -76,7 +80,7 @@ LineTerminator = \r|\n|\r\n
     }
   {comment}|{commentmanylines}	
     { 
-        System.out.println( "Comment :\t" + yytext()  ); 
+        
     }
   {space} | {LineTerminator}	
     { 

@@ -1,18 +1,3 @@
-c = a + b
-e = c + a
-if
-then
-else
-;
-(
-)
-"999string123"
-"test space"
-"print"
-//comment
-/*Hello *
-world*/
-
 A + B
 -
 *

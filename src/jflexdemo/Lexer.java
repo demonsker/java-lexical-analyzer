@@ -64,11 +64,11 @@ public class Lexer {
 
   private static final String ZZ_ACTION_PACKED_0 =
     "\2\0\1\1\1\2\11\3\5\4\1\5\1\1\1\6"+
-    "\1\2\1\7\7\3\1\0\1\10\1\0\1\11\7\3"+
-    "\1\0\2\3\1\10\1\3";
+    "\1\2\1\7\7\3\1\0\1\2\1\0\1\10\7\3"+
+    "\1\0\3\3";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[46];
+    int [] result = new int[45];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -98,10 +98,10 @@ public class Lexer {
     "\0\u0186\0\u01a4\0\u01c2\0\u01e0\0\0\0\u01fe\0\132\0\u021c"+
     "\0\u023a\0\u0258\0\u0276\0\u0294\0\u02b2\0\u02d0\0\u02ee\0\u030c"+
     "\0\u01e0\0\u01e0\0\u032a\0\u0348\0\u0366\0\u0384\0\u03a2\0\u03c0"+
-    "\0\u03de\0\u03fc\0\u041a\0\u0438\0\0\0\u0456";
+    "\0\u03de\0\u03fc\0\u041a\0\u0438\0\u0456";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[46];
+    int [] result = new int[45];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -148,8 +148,8 @@ public class Lexer {
     "\11\6\7\0\2\6\7\0\6\6\1\53\7\6\7\0"+
     "\2\6\7\0\6\6\1\45\7\6\7\0\2\6\7\0"+
     "\5\6\1\54\10\6\7\0\2\6\7\0\10\6\1\27"+
-    "\5\6\7\0\2\6\5\0\22\37\1\52\1\55\12\37"+
-    "\2\0\1\56\15\6\7\0\2\6\7\0\2\6\1\27"+
+    "\5\6\7\0\2\6\5\0\22\37\1\52\1\4\12\37"+
+    "\2\0\1\55\15\6\7\0\2\6\7\0\2\6\1\27"+
     "\13\6\7\0\2\6\7\0\5\6\1\45\10\6\7\0"+
     "\2\6\5\0";
 
@@ -193,10 +193,10 @@ public class Lexer {
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
     "\1\10\1\0\2\11\13\1\1\11\4\1\1\11\11\1"+
-    "\1\0\1\1\1\0\10\1\1\0\2\1\1\11\1\1";
+    "\1\0\1\1\1\0\10\1\1\0\3\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[46];
+    int [] result = new int[45];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -593,15 +593,15 @@ public class Lexer {
           case 1: 
             { System.err.println( "Invalid character \"" + yytext() + "\"" );
             }
-          case 10: break;
+          case 9: break;
           case 2: 
             { 
             }
-          case 11: break;
+          case 10: break;
           case 3: 
             { if(list.contains(yytext()))
         {
-            System.out.println( "Identifier "+yytext() +" already exists");
+            System.out.println( "Identifier "+yytext() +" already in symbol table");
         }
         else
         {
@@ -609,38 +609,38 @@ public class Lexer {
             list.add(yytext());
         }
             }
-          case 12: break;
+          case 11: break;
           case 4: 
             { System.out.println( "Operator :\t" + yytext()  );
             }
-          case 13: break;
+          case 12: break;
           case 5: 
             { System.out.println( "Integer :\t" + yytext()  );
             }
-          case 14: break;
+          case 13: break;
           case 6: 
             { if(yytext().equals(";"))
         {
             System.out.println( "Semicolon :\t" + yytext()  ); 
         }
+        else if(yytext().equals("("))
+        {
+            System.out.println( "Open Bracket :\t" + yytext()  ); 
+        }
         else
         {
-            System.out.println( "Bracket :\t" + yytext()  ); 
+            System.out.println( "Close Bracket :\t" + yytext()  ); 
         }
             }
-          case 15: break;
+          case 14: break;
           case 7: 
             { System.out.println( "Keyword :\t" + yytext()  );
             }
-          case 16: break;
+          case 15: break;
           case 8: 
-            { System.out.println( "Comment :\t" + yytext()  );
-            }
-          case 17: break;
-          case 9: 
             { System.out.println( "String :\t" + yytext()  );
             }
-          case 18: break;
+          case 16: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }
