@@ -1,2 +1,2 @@
 # java-lexical-analyzer
-term assignment with JFlex
+term assignment in Automata Theory and Programming Languages
