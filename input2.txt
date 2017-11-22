@@ -1,5 +1,8 @@
 c = a + b
 e = c + a
+1150
+10
+5
 if
 then
 else
