@@ -1,8 +1,5 @@
 package jflexdemo; 
-<<<<<<< HEAD
-=======
 import java.util.ArrayList;
->>>>>>> 7064cefb0ffb6b00072a16e5507b27df98f17837
  
 %% 
  
@@ -20,7 +17,7 @@ import java.util.ArrayList;
     yybegin( FIRST ); 
 %init}
 
-character = [^\r\n]
+character = [^\n]
 keyword = "if" | "then" |"else"| "endif" |"while" |"do"| "endwhile" |"print" |"newline"| "read"
 operator = "+" | "-" |"*"| "/"| "="| ">" |">="| "<"| "<="| "==" |"++"| "--"
 integer = \d+
